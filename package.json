@@ -1,0 +1,34 @@
+{
+  "name": "wt",
+  "version": "1.0.0",
+  "description": "this is raect",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "jest",
+    "build":"parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdulRahman20011111/react.git"
+  },
+  "keywords": [
+    "react",
+    "wt"
+  ],
+  "author": "rahman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbdulRahman20011111/react/issues"
+  },
+  "homepage": "https://github.com/AbdulRahman20011111/react#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "browserslist":[
+    "last 2 versions"
+  ]
+}

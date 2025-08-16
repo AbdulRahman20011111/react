@@ -1,1 +1,5 @@
-console.log("hello git");
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<h1>Hello, HI React with Parcel!</h1>);
