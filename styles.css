@@ -41,9 +41,21 @@ h1{
 }
 .rescont{
     display: flex;
+    flex-wrap: wrap;
 }
 .rescont {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
+}
+.shimmercards{
+    margin: 20px;
+    width: 200px;
+    height: 400px;
+    background-color: gray;
+}
+
+.shimmercontainer{
+    display: flex;
+    flex-wrap: wrap;
 }

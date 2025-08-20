@@ -1,1 +1,6 @@
 reconcilation algo --also known as ReactFiber
+virtual dom is representation of actual dom it is like AN Object
+DIFF algo finds difference between old and new virtual dom and the  it updates component
+it is from react 16 reactfiber contains diff algo
+hook is normal js function that hasmitd own specific function
+useEffect is called after component/body  is rendered
