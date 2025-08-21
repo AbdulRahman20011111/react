@@ -1,6 +1,8 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
+import { Link } from "react-router-dom";
 const Header = ()=>{
     const [btn,setbtn]=useState("login");
+    
     return(
         <div className="header">
             <div className="logo container">
@@ -8,10 +10,16 @@ const Header = ()=>{
         </div>
         <div className="navitems">
             <ul>
-                <li>home</li>
-                <li>about us</li>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/about">about us</Link>
+                </li>
                 <li>cart</li>
-                <li>contact</li>
+                <li>
+                     <Link to="/contacts">Contacts</Link>
+                </li>
                 <li><button onClick={()=>{
                     btn==="login"? setbtn("logout"):setbtn("login");
                 }}>

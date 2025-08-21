@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { restaurants } from "./utils";
+import { Link } from "react-router-dom";
 
 
  
@@ -134,8 +136,11 @@ const restaurants = [
 
 
   
-export const Body = () => {
+  export const Body = () => {
     const [ListOfTop,setListOfTop]=useState([]);
+    const [filteredRes,setFilteredRes]=useState([]);
+        const [searchtxt,setSearchTxt]=useState("");
+
     useEffect(()=>{
       fetchData();
       console.log("useEffect called")
@@ -148,11 +153,11 @@ export const Body = () => {
        console.log(json);
       const f=json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
       const fr=f || []
-      setListOfTop(fr);
+      setListOfTop(json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setFilteredRes(json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
        console.log(ListOfTop);
     }
-    const [searchtxt,setSearchTxt]=useState("");
 
    if(ListOfTop.length===0){
     return <Shimmer/>
@@ -170,18 +175,19 @@ export const Body = () => {
                   .toLowerCase()
                   .includes(searchtxt.toLowerCase())
               );
-              setListOfTop(searched);
+              setFilteredRes(searched);
             }}
               >search</button>
       </div>
        <button className="filter" onClick={()=>{const filter=ListOfTop.filter((restaurants)=> restaurants.info.avgRating>4.3)
-       setListOfTop(filter);
+       setFilteredRes(filter);
        }}>Top Rated Restaurants</button>
        {/* whenever use state is used react rerenders component */}
     </div>
       <div className="rescont">
-        {ListOfTop.map((restaurant) => (
-          <ResCard key={restaurant.info.id} restaurant={restaurant.info} />
+        {filteredRes.map((restaurant) => (
+          <Link key={restaurant.info.id}
+          to={"/restaurants/"+restaurant.info.id}><ResCard  restaurant={restaurant.info} /></Link>
         ))}
       </div>
     </div>
